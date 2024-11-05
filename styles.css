@@ -1,0 +1,248 @@
+/* Modern CSS Reset and Variables */
+:root {
+    --primary-color: #4CAF50;
+    --primary-hover: #45a049;
+    --danger-color: #ff4444;
+    --danger-hover: #cc0000;
+    --background: #f5f5f5;
+    --card-background: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    --box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Base styles with smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background);
+    color: var(--text-primary);
+    transition: background-color var(--transition-speed);
+  }
+  
+  /* Container with enhanced shadow and animation */
+  .container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transform: translateY(0);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  }
+  
+  .container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Modern form styles */
+  #todoForm {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 2rem;
+  }
+  
+  #todoInput {
+    flex: 1;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: all var(--transition-speed);
+    outline: none;
+  }
+  
+  #todoInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+  }
+  
+  /* Enhanced button styles */
+  button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  /* Modern filter styles with pill-shaped buttons */
+  .filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 2rem;
+    padding: 8px;
+    background: #f0f0f0;
+    border-radius: 50px;
+  }
+  
+  .filters button {
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 50px;
+  }
+  
+  .filters button:hover {
+    background: rgba(76, 175, 80, 0.1);
+    color: var(--primary-color);
+  }
+  
+  .filters button.active {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  /* Enhanced todo item styles with hover effects */
+  .todo-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #f9f9f9;
+    border-radius: var(--border-radius);
+    margin-bottom: 12px;
+    transition: all var(--transition-speed);
+    border: 1px solid transparent;
+  }
+  
+  .todo-item:hover {
+    background: #f0f0f0;
+    border-color: #e0e0e0;
+    transform: translateX(4px);
+  }
+  
+  .todo-text {
+    flex: 1;
+    transition: all var(--transition-speed);
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+    color: var(--text-secondary);
+  }
+  
+  /* Animated delete button */
+  .delete-btn {
+    background: var(--danger-color);
+    padding: 8px 12px;
+    border-radius: var(--border-radius);
+    opacity: 0.8;
+    transition: all var(--transition-speed);
+  }
+  
+  .delete-btn:hover {
+    background: var(--danger-hover);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  /* Enhanced counter styles */
+  #taskCount {
+    margin-top: 2rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+    padding: 8px;
+    border-top: 1px solid #e0e0e0;
+    transition: all var(--transition-speed);
+  }
+  
+  #taskCount:hover {
+    color: var(--text-primary);
+  }
+  
+  /* Checkbox custom styling */
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    transition: all var(--transition-speed);
+  }
+  
+  input[type="checkbox"]:checked {
+    transform: scale(1.1);
+  }
+  
+  /* Add loading state animation */
+  .loading {
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+  
+  /* Responsive design improvements */
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem;
+      margin: 1rem;
+    }
+    
+    #todoForm {
+      flex-direction: column;
+    }
+    
+    .filters {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #1a1a1a;
+      --card-background: #2d2d2d;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+    }
+    
+    #todoInput {
+      background: #3d3d3d;
+      border-color: #4d4d4d;
+      color: var(--text-primary);
+    }
+    
+    .todo-item {
+      background: #3d3d3d;
+    }
+    
+    .todo-item:hover {
+      background: #454545;
+    }
+    
+    .filters {
+      background: #3d3d3d;
+    }
+  }
